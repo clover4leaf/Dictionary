@@ -7,6 +7,7 @@ target 'MyDictionary' do
 
   # Pods for MyDictionary
 
-  pod 'SwiftGoogleTranslate'
+  pod 'SwiftLint'
+  pod 'RealmSwift'
 
 end
