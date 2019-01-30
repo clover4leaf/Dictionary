@@ -40,13 +40,14 @@ class DBManager {
         }
     }
 
-    func deleteItemAt(index: Int) {
+    func deleteItemAt(index: Int, completion: () -> Void) {
         if let realm = try? Realm() {
             try? realm.write {
                 let wordResults = realm.objects(Word.self)
 
                 realm.delete(wordResults[index])
 //                realm.deleteAll()
+                completion()
             }
         }
     }
@@ -67,7 +68,7 @@ class DBManager {
 
         return []
     }
-    
+
     func getDefinitionOf(wordIndex: Int) -> [String] {
         if let realm = try? Realm() {
             let defResults = realm.objects(Word.self)

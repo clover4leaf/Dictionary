@@ -17,7 +17,9 @@
 		7CA21EB722006B5E00FE3CF1 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB622006B5E00FE3CF1 /* Word.swift */; };
 		7CA21EB92200A68800FE3CF1 /* NewWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */; };
 		7CA21EBB2200A76200FE3CF1 /* DefinitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */; };
-		7CA21EBD2200B58800FE3CF1 /* DefinitionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EBC2200B58800FE3CF1 /* DefinitionTVC.swift */; };
+		7CC10DB42201AC61008AB33E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB32201AC61008AB33E /* Helper.swift */; };
+		7CC10DB72201B21D008AB33E /* CustomTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB52201B21D008AB33E /* CustomTVC.swift */; };
+		7CC10DB82201B21D008AB33E /* CustomTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC10DB62201B21D008AB33E /* CustomTVC.xib */; };
 		AAD4C0E17E940FEAE5DA5B80 /* Pods_MyDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547986AE13187A6FB506C99B /* Pods_MyDictionary.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +39,9 @@
 		7CA21EB622006B5E00FE3CF1 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordVC.swift; sourceTree = "<group>"; };
 		7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionVC.swift; sourceTree = "<group>"; };
-		7CA21EBC2200B58800FE3CF1 /* DefinitionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTVC.swift; sourceTree = "<group>"; };
+		7CC10DB32201AC61008AB33E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		7CC10DB52201B21D008AB33E /* CustomTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVC.swift; sourceTree = "<group>"; };
+		7CC10DB62201B21D008AB33E /* CustomTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 				7CA21EAE2200668D00FE3CF1 /* Managers */,
 				7CA21EB522006B3100FE3CF1 /* Models */,
 				7CA21EA02200584700FE3CF1 /* Assets.xcassets */,
+				7CC10DB22201AC0A008AB33E /* Helper */,
 				7CA21EAB220059A800FE3CF1 /* Storyboards */,
 				7CA21EA52200584700FE3CF1 /* Info.plist */,
 				7CA21E992200584600FE3CF1 /* AppDelegate.swift */,
@@ -108,7 +113,8 @@
 				7CA21EB02200671500FE3CF1 /* WordsVC.swift */,
 				7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */,
 				7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */,
-				7CA21EBC2200B58800FE3CF1 /* DefinitionTVC.swift */,
+				7CC10DB52201B21D008AB33E /* CustomTVC.swift */,
+				7CC10DB62201B21D008AB33E /* CustomTVC.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +125,14 @@
 				7CA21EB622006B5E00FE3CF1 /* Word.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7CC10DB22201AC0A008AB33E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7CC10DB32201AC61008AB33E /* Helper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		AFE5D6B46E69A44995F90519 /* Frameworks */ = {
@@ -201,6 +215,7 @@
 			files = (
 				7CA21EA42200584700FE3CF1 /* LaunchScreen.storyboard in Resources */,
 				7CA21EA12200584700FE3CF1 /* Assets.xcassets in Resources */,
+				7CC10DB82201B21D008AB33E /* CustomTVC.xib in Resources */,
 				7CA21E9F2200584600FE3CF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +297,8 @@
 				7CA21EB92200A68800FE3CF1 /* NewWordVC.swift in Sources */,
 				7CA21E9A2200584600FE3CF1 /* AppDelegate.swift in Sources */,
 				7CA21EB722006B5E00FE3CF1 /* Word.swift in Sources */,
-				7CA21EBD2200B58800FE3CF1 /* DefinitionTVC.swift in Sources */,
+				7CC10DB72201B21D008AB33E /* CustomTVC.swift in Sources */,
+				7CC10DB42201AC61008AB33E /* Helper.swift in Sources */,
 				7CA21EAD2200646600FE3CF1 /* DictionaryManager.swift in Sources */,
 				7CA21EBB2200A76200FE3CF1 /* DefinitionVC.swift in Sources */,
 				7CA21EB32200688700FE3CF1 /* DBManager.swift in Sources */,

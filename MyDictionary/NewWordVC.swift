@@ -13,6 +13,7 @@ class NewWordVC: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var saveButton: UIButton!
 
     // MARK: - Actions
     @IBAction func onSave(_ sender: Any) {
@@ -24,6 +25,11 @@ class NewWordVC: UIViewController {
                 }
 
                 if let array = array {
+                    if array.isEmpty {
+                        UIAlertController.alertNoSuch(word: word, viewController: self)
+                        return
+                    }
+
                     let defArray = DBManager.shared.arrayToListConverter(array: array)
 
                     let wordObject = Word()
@@ -32,7 +38,6 @@ class NewWordVC: UIViewController {
                     wordObject.definitions = defArray
 
                     DBManager.shared.saveWordWith(object: wordObject)
-                    print(DBManager.shared.getSavedWords())
 
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -44,10 +49,18 @@ class NewWordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
+
+        setupUI()
+    }
+
+    // MARK: - Private functions
+    private func setupUI() {
+        self.view.backgroundColor = UIColor.backgroundColor()
+        saveButton.layer.backgroundColor = UIColor.redColor().cgColor
     }
 }
 
-// MARK: - Textfield
+// MARK: - UITextFieldDelegate
 extension NewWordVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

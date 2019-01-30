@@ -11,6 +11,9 @@ import RealmSwift
 
 class WordsVC: UIViewController {
 
+    // MARK: Privates
+    private var savedWords = [String]()
+
     // MARK: - Actions
     @IBAction func onAdd(_ sender: Any) {
         let viewId = "newWordScreen"
@@ -24,23 +27,52 @@ class WordsVC: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
 
-    // MARK: Privates
-    private var savedWords = [String]()
-
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "customCell")
 
+        setupUI()
 //        DBManager.shared.printPath()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        savedWords = DBManager.shared.getSavedWords()
+        reloadDataFromDB()
+    }
 
+    // MARK: - Private functions
+    private func setupUI() {
+        self.navigationItem.title = "Words"
+
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.backgroundColor()
+
+        self.view.backgroundColor = UIColor.backgroundColor()
+    }
+
+    private func reloadDataFromDB() {
+        savedWords = DBManager.shared.getSavedWords()
         self.tableView.reloadData()
+    }
+
+    private func deleteActionAt(indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Delete") { (_, _, complection) in
+
+            UIAlertController.alertDeleteWord(index: indexPath.row,
+                                              word: self.savedWords[indexPath.row],
+                                              viewController: self, completion: {
+                                                self.reloadDataFromDB()
+            })
+
+            complection(true)
+        }
+
+        action.backgroundColor = .red
+
+        return action
     }
 }
 
@@ -50,26 +82,42 @@ extension WordsVC: UITableViewDelegate, UITableViewDataSource {
         return savedWords.count
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "wordCell"
+        let cellId = "customCell"
 
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId)
+        if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? CustomTVC {
+            cell.configureCellWith(text: savedWords[indexPath.row], fontSize: 34.0)
+            cell.chooseColorForCell(index: indexPath.row)
 
-        cell?.textLabel?.text = savedWords[indexPath.row]
+            return cell
+        }
 
-        return cell!
+        return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewId = "definitionsScreen"
+
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
 
         if let defVC = storyboard.instantiateViewController(withIdentifier: viewId) as? DefinitionVC {
             defVC.word = savedWords[indexPath.row]
             defVC.index = indexPath.row
-            
+
             self.navigationController?.pushViewController(defVC, animated: true)
         }
     }
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteActionAt(indexPath: indexPath)
+        let swipeAction = UISwipeActionsConfiguration(actions: [delete])
+
+        swipeAction.performsFirstActionWithFullSwipe = false
+
+        return swipeAction
+    }
 }

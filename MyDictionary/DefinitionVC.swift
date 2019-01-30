@@ -10,6 +10,9 @@ import UIKit
 
 class DefinitionVC: UIViewController {
 
+    // MARK: - Privates
+    private var defArray = [String]()
+
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
 
@@ -17,72 +20,56 @@ class DefinitionVC: UIViewController {
     var word = String()
     var index = Int()
 
-    // MARK: - Privates
-    private var defArray = [String]()
-
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "customCell")
 
+        defArray = DBManager.shared.getDefinitionOf(wordIndex: index)
+
+        setupUI()
+    }
+
+    // MARK: - Private functions
+    @objc private func deleteAction() {
+        UIAlertController.alertDeleteWord(index: self.index, word: word, viewController: self) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    private func setupUI() {
         self.navigationItem.title = word
 
         let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAction))
         self.navigationItem.rightBarButtonItem = deleteItem
 
-        defArray = DBManager.shared.getDefinitionOf(wordIndex: index)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.backgroundColor()
 
-        let backgroundColor = getColorWith(red: 80.0, green: 88.0, blue: 112.0)
-
-        tableView.backgroundColor = backgroundColor
-        self.view.backgroundColor = backgroundColor
-    }
-
-    func getColorWith(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        let color = UIColor.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
-        return color
-    }
-
-    // MARK: - Private functions
-    @objc private func deleteAction() {
-        let title = "Delete?"
-        let message = "Are you sure you want to delete the word: \(word)"
-
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            DBManager.shared.deleteItemAt(index: self.index)
-            self.navigationController?.popViewController(animated: true)
-        }
-
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-
-        alert.addAction(yesAction)
-        alert.addAction(noAction)
-
-        present(alert, animated: true, completion: nil)
+        self.view.backgroundColor = UIColor.backgroundColor()
     }
 }
 
 // MARK: - TableView
 extension DefinitionVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
         return defArray.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "defCell"
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
-        if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? DefinitionTVC {
-            cell.configureCellWith(def: defArray[indexPath.section])
-            cell.chooseColorForCell(index: indexPath.section)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellId = "customCell"
+
+        if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? CustomTVC {
+            cell.configureCellWith(text: defArray[indexPath.row], fontSize: 17.0)
+            cell.chooseColorForCell(index: indexPath.row)
 
             return cell
         }

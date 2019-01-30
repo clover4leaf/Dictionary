@@ -10,6 +10,7 @@ import Foundation
 
 final class DictionaryManager {
 
+    // MARK: - Initializers
     private init() {}
 
     // MARK: - Class func
