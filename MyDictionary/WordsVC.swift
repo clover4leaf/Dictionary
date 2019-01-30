@@ -22,7 +22,7 @@ class WordsVC: UIViewController {
     }
 
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: Privates
     private var savedWords = [String]()

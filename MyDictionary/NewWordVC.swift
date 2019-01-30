@@ -12,7 +12,7 @@ import RealmSwift
 class NewWordVC: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
 
     // MARK: - Actions
     @IBAction func onSave(_ sender: Any) {

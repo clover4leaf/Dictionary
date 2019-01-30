@@ -11,7 +11,7 @@ import UIKit
 class DefinitionVC: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Publics
     var word = String()
@@ -34,6 +34,16 @@ class DefinitionVC: UIViewController {
         self.navigationItem.rightBarButtonItem = deleteItem
 
         defArray = DBManager.shared.getDefinitionOf(wordIndex: index)
+
+        let backgroundColor = getColorWith(red: 80.0, green: 88.0, blue: 112.0)
+
+        tableView.backgroundColor = backgroundColor
+        self.view.backgroundColor = backgroundColor
+    }
+
+    func getColorWith(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+        let color = UIColor.init(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0)
+        return color
     }
 
     // MARK: - Private functions
@@ -72,6 +82,7 @@ extension DefinitionVC: UITableViewDelegate, UITableViewDataSource {
 
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? DefinitionTVC {
             cell.configureCellWith(def: defArray[indexPath.section])
+            cell.chooseColorForCell(index: indexPath.section)
 
             return cell
         }

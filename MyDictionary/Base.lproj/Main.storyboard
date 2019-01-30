@@ -130,7 +130,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ba6-7D-bsY">
                                 <rect key="frame" x="10" y="44" width="394" height="852"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.60392156860000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defCell" rowHeight="64" id="Cij-ez-x8o" customClass="DefinitionTVC" customModule="MyDictionary" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="64"/>
@@ -143,24 +143,34 @@
                                                     <rect key="frame" x="5" y="5" width="384" height="53.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WQ-0g-0ve">
-                                                            <rect key="frame" x="10" y="10" width="364" height="33.5"/>
+                                                            <rect key="frame" x="15" y="5" width="364" height="43.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="-5"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63o-p2-gXA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="10" height="53.5"/>
+                                                            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="10" id="OiV-1L-9nI"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="7WQ-0g-0ve" secondAttribute="trailing" constant="10" id="Adi-Wg-Ya8"/>
-                                                        <constraint firstItem="7WQ-0g-0ve" firstAttribute="top" secondItem="PZe-aF-fZI" secondAttribute="top" constant="10" id="QLd-jl-PAM"/>
-                                                        <constraint firstAttribute="bottom" secondItem="7WQ-0g-0ve" secondAttribute="bottom" constant="10" id="kxX-Zb-tfx"/>
-                                                        <constraint firstItem="7WQ-0g-0ve" firstAttribute="leading" secondItem="PZe-aF-fZI" secondAttribute="leading" constant="10" id="mag-gh-DGk"/>
+                                                        <constraint firstItem="7WQ-0g-0ve" firstAttribute="top" secondItem="PZe-aF-fZI" secondAttribute="top" constant="5" id="GTb-hQ-TYn"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7WQ-0g-0ve" secondAttribute="bottom" constant="5" id="H0z-tb-Gp3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="63o-p2-gXA" secondAttribute="bottom" id="Kxu-mg-Xr2"/>
+                                                        <constraint firstItem="63o-p2-gXA" firstAttribute="top" secondItem="PZe-aF-fZI" secondAttribute="top" id="QU1-8z-9vo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7WQ-0g-0ve" secondAttribute="trailing" constant="5" id="YSQ-0C-aTp"/>
+                                                        <constraint firstItem="7WQ-0g-0ve" firstAttribute="leading" secondItem="63o-p2-gXA" secondAttribute="trailing" constant="5" id="ZJQ-qH-3JB"/>
+                                                        <constraint firstItem="63o-p2-gXA" firstAttribute="leading" secondItem="PZe-aF-fZI" secondAttribute="leading" id="gqg-ay-Bif"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.20000000000000001" green="0.60392156860000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="PZe-aF-fZI" firstAttribute="leading" secondItem="ewd-Vr-ZvZ" secondAttribute="leading" constant="5" id="39q-rG-1NM"/>
                                                 <constraint firstAttribute="trailing" secondItem="PZe-aF-fZI" secondAttribute="trailing" constant="5" id="NHd-Bu-2L8"/>
@@ -170,13 +180,14 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellView" destination="PZe-aF-fZI" id="hiq-78-UwW"/>
+                                            <outlet property="colorCellView" destination="63o-p2-gXA" id="hJv-FR-yEH"/>
                                             <outlet property="defLabel" destination="7WQ-0g-0ve" id="lMn-q1-aat"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.60392156862745094" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ba6-7D-bsY" firstAttribute="leading" secondItem="iYs-rV-HAo" secondAttribute="leading" constant="10" id="WZG-ml-dDd"/>
                             <constraint firstAttribute="bottom" secondItem="ba6-7D-bsY" secondAttribute="bottom" id="cL4-1f-fNZ"/>
