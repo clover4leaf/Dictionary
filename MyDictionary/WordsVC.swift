@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+//import Realm
 
 class WordsVC: UIViewController {
 
@@ -36,7 +37,7 @@ class WordsVC: UIViewController {
         tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "customCell")
 
         setupUI()
-//        DBManager.shared.printPath()
+        DBManager.shared.printPath()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -57,6 +57,9 @@ class NewWordVC: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = UIColor.backgroundColor()
         saveButton.layer.backgroundColor = UIColor.redColor().cgColor
+        saveButton.layer.cornerRadius = 5.0
+        saveButton.layer.masksToBounds = true
+        saveButton.clipsToBounds = true
     }
 }
 
