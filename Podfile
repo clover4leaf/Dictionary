@@ -9,5 +9,7 @@ target 'MyDictionary' do
 
   pod 'SwiftLint'
   pod 'RealmSwift'
+  pod 'Alamofire'
+  pod 'ObjectMapper'
 
 end

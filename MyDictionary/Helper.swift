@@ -44,6 +44,7 @@ extension UIColor {
 
 // MARK: - UIAlertController
 extension UIAlertController {
+
     class func alertNoSuch(word: String, viewController: UIViewController) {
         let title = "Sorry"
         let message = "There is no such word as: '\(word)'"
@@ -77,4 +78,5 @@ extension UIAlertController {
 
         viewController.present(alert, animated: true, completion: nil)
     }
+
 }
