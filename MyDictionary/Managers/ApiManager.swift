@@ -24,7 +24,6 @@ final class ApiManager {
     // MARK: - Public functions
     func findDifinitionOf(word: String, completionHandler: @escaping ([WordMappable]?, Error?) -> Void) {
         // check the word before doing the request
-
         guard let url = try? "https://dictionaryapi.com/api/v3/references/sd2/json/\(word)".asURL() else { return }
 
         let parametres = [
@@ -34,9 +33,8 @@ final class ApiManager {
         request(url, method: .get, parameters: parametres).validate().responseString { (responseString) in
             switch responseString.result {
             case .success(let value):
-                print(value)
-                let wordMappeble = Mapper<WordMappable>().mapArray(JSONString: value)
-                completionHandler(wordMappeble, nil)
+                let wordMappable = Mapper<WordMappable>().mapArray(JSONString: value)
+                completionHandler(wordMappable, nil)
             case .failure(let error):
                 completionHandler(nil, error)
             }

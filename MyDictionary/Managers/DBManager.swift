@@ -19,7 +19,7 @@ class DBManager {
     private init() {}
 
     func printPath() {
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        print(Realm.Configuration.defaultConfiguration.fileURL ?? "NO_URL")
     }
 
     func arrayToListConverter(array: [String]) -> List<String> {

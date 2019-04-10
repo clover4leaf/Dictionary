@@ -31,12 +31,7 @@ class WordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
-        let cellId = CustomTableViewCell.getStringName()
-        tableView.register(UINib(nibName: cellId, bundle: nil),
-                           forCellReuseIdentifier: cellId)
-
+        setupTableView()
         setupUI()
 //        DBManager.shared.printPath()
     }
@@ -57,6 +52,14 @@ class WordsViewController: UIViewController {
         tableView.backgroundColor = UIColor.backgroundColor()
 
         self.view.backgroundColor = UIColor.backgroundColor()
+    }
+
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let cellId = CustomTableViewCell.getStringName()
+        tableView.register(UINib(nibName: cellId, bundle: nil),
+                           forCellReuseIdentifier: cellId)
     }
 
     private func reloadDataFromDB() {
