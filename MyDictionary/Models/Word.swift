@@ -6,9 +6,7 @@
 //  Copyright © 2019 Kirill. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
-import Realm
 
 class Word: Object {
     @objc dynamic var word: String = ""

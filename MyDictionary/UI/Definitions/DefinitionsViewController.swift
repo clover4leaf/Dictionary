@@ -1,14 +1,14 @@
 //
-//  DefinitionVC.swift
+//  DefinitionsViewController.swift
 //  MyDictionary
 //
-//  Created by Kirill on 1/29/19.
+//  Created by Kirill on 4/10/19.
 //  Copyright © 2019 Kirill. All rights reserved.
 //
 
 import UIKit
 
-class DefinitionVC: UIViewController {
+class DefinitionsViewController: UIViewController {
 
     // MARK: - Privates
     private var defArray = [String]()
@@ -27,7 +27,9 @@ class DefinitionVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
-        tableView.register(UINib(nibName: "CustomTVC", bundle: nil), forCellReuseIdentifier: "customCell")
+        let cellId = CustomTableViewCell.getStringName()
+        tableView.register(UINib(nibName: cellId, bundle: nil),
+                           forCellReuseIdentifier: cellId)
 
         defArray = DBManager.shared.getDefinitionOf(wordIndex: index)
 
@@ -36,15 +38,19 @@ class DefinitionVC: UIViewController {
 
     // MARK: - Private functions
     @objc private func deleteAction() {
-        UIAlertController.alertDeleteWord(index: self.index, word: word, viewController: self) {
-            self.navigationController?.popViewController(animated: true)
+        AlertManager.shared.alertDeleteWord(index: self.index,
+                                            word: word,
+                                            viewController: self) {
+                                                self.navigationController?.popViewController(animated: true)
         }
     }
 
     private func setupUI() {
         self.navigationItem.title = word
 
-        let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteAction))
+        let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash,
+                                         target: self,
+                                         action: #selector(deleteAction))
         self.navigationItem.rightBarButtonItem = deleteItem
 
         tableView.separatorStyle = .none
@@ -52,11 +58,14 @@ class DefinitionVC: UIViewController {
 
         self.view.backgroundColor = UIColor.backgroundColor()
     }
+
 }
 
 // MARK: - TableView
-extension DefinitionVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension DefinitionsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return defArray.count
     }
 
@@ -64,10 +73,11 @@ extension DefinitionVC: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = "customCell"
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellId = CustomTableViewCell.getStringName()
 
-        if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? CustomTVC {
+        if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? CustomTableViewCell {
             cell.configureCellWith(text: defArray[indexPath.row], fontSize: 17.0)
             cell.chooseColorForCell(index: indexPath.row)
 
@@ -76,4 +86,5 @@ extension DefinitionVC: UITableViewDelegate, UITableViewDataSource {
 
         return UITableViewCell()
     }
+
 }

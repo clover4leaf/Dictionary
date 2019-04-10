@@ -11,15 +11,18 @@
 		7CA21E9F2200584600FE3CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA21E9D2200584600FE3CF1 /* Main.storyboard */; };
 		7CA21EA12200584700FE3CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CA21EA02200584700FE3CF1 /* Assets.xcassets */; };
 		7CA21EA42200584700FE3CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA21EA22200584700FE3CF1 /* LaunchScreen.storyboard */; };
-		7CA21EAD2200646600FE3CF1 /* DictionaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EAC2200646600FE3CF1 /* DictionaryManager.swift */; };
-		7CA21EB12200671500FE3CF1 /* WordsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB02200671500FE3CF1 /* WordsVC.swift */; };
+		7CA21EAD2200646600FE3CF1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EAC2200646600FE3CF1 /* ApiManager.swift */; };
 		7CA21EB32200688700FE3CF1 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB22200688700FE3CF1 /* DBManager.swift */; };
 		7CA21EB722006B5E00FE3CF1 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB622006B5E00FE3CF1 /* Word.swift */; };
-		7CA21EB92200A68800FE3CF1 /* NewWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */; };
-		7CA21EBB2200A76200FE3CF1 /* DefinitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */; };
-		7CC10DB42201AC61008AB33E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB32201AC61008AB33E /* Helper.swift */; };
-		7CC10DB72201B21D008AB33E /* CustomTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB52201B21D008AB33E /* CustomTVC.swift */; };
-		7CC10DB82201B21D008AB33E /* CustomTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC10DB62201B21D008AB33E /* CustomTVC.xib */; };
+		7CAE0D12225E7074006A9BFF /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D11225E7074006A9BFF /* Extension+UIColor.swift */; };
+		7CAE0D14225E70B5006A9BFF /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D13225E70B5006A9BFF /* AlertManager.swift */; };
+		7CAE0D16225E7689006A9BFF /* WordMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D15225E7689006A9BFF /* WordMappable.swift */; };
+		7CAE0D19225E778B006A9BFF /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D18225E778B006A9BFF /* WordsViewController.swift */; };
+		7CAE0D1D225E7819006A9BFF /* NewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D1C225E7819006A9BFF /* NewWordViewController.swift */; };
+		7CAE0D1F225E782C006A9BFF /* DefinitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D1E225E782C006A9BFF /* DefinitionsViewController.swift */; };
+		7CAE0D24225E798D006A9BFF /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D23225E798D006A9BFF /* Extension+NSObject.swift */; };
+		7CC10DB72201B21D008AB33E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB52201B21D008AB33E /* CustomTableViewCell.swift */; };
+		7CC10DB82201B21D008AB33E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC10DB62201B21D008AB33E /* CustomTableViewCell.xib */; };
 		AAD4C0E17E940FEAE5DA5B80 /* Pods_MyDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547986AE13187A6FB506C99B /* Pods_MyDictionary.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,15 +36,18 @@
 		7CA21EA02200584700FE3CF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CA21EA32200584700FE3CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CA21EA52200584700FE3CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CA21EAC2200646600FE3CF1 /* DictionaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryManager.swift; sourceTree = "<group>"; };
-		7CA21EB02200671500FE3CF1 /* WordsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsVC.swift; sourceTree = "<group>"; };
+		7CA21EAC2200646600FE3CF1 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		7CA21EB22200688700FE3CF1 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7CA21EB622006B5E00FE3CF1 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordVC.swift; sourceTree = "<group>"; };
-		7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionVC.swift; sourceTree = "<group>"; };
-		7CC10DB32201AC61008AB33E /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		7CC10DB52201B21D008AB33E /* CustomTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVC.swift; sourceTree = "<group>"; };
-		7CC10DB62201B21D008AB33E /* CustomTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTVC.xib; sourceTree = "<group>"; };
+		7CAE0D11225E7074006A9BFF /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		7CAE0D13225E70B5006A9BFF /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		7CAE0D15225E7689006A9BFF /* WordMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordMappable.swift; sourceTree = "<group>"; };
+		7CAE0D18225E778B006A9BFF /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
+		7CAE0D1C225E7819006A9BFF /* NewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWordViewController.swift; sourceTree = "<group>"; };
+		7CAE0D1E225E782C006A9BFF /* DefinitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionsViewController.swift; sourceTree = "<group>"; };
+		7CAE0D23225E798D006A9BFF /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
+		7CC10DB52201B21D008AB33E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		7CC10DB62201B21D008AB33E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CA142D72255F6B20059631F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE0D17225E7771006A9BFF /* Words */,
+				7CAE0D1A225E77C9006A9BFF /* New Word */,
+				7CAE0D1B225E77DC006A9BFF /* Definitions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		7CA21E8D2200584600FE3CF1 = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +93,7 @@
 		7CA21E982200584600FE3CF1 /* MyDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				7CA21EAF2200669900FE3CF1 /* Controllers */,
+				7CA142D72255F6B20059631F /* UI */,
 				7CA21EAE2200668D00FE3CF1 /* Managers */,
 				7CA21EB522006B3100FE3CF1 /* Models */,
 				7CA21EA02200584700FE3CF1 /* Assets.xcassets */,
@@ -101,38 +117,63 @@
 		7CA21EAE2200668D00FE3CF1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				7CA21EAC2200646600FE3CF1 /* DictionaryManager.swift */,
+				7CA21EAC2200646600FE3CF1 /* ApiManager.swift */,
 				7CA21EB22200688700FE3CF1 /* DBManager.swift */,
+				7CAE0D13225E70B5006A9BFF /* AlertManager.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		7CA21EAF2200669900FE3CF1 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7CA21EB02200671500FE3CF1 /* WordsVC.swift */,
-				7CA21EB82200A68800FE3CF1 /* NewWordVC.swift */,
-				7CA21EBA2200A76200FE3CF1 /* DefinitionVC.swift */,
-				7CC10DB52201B21D008AB33E /* CustomTVC.swift */,
-				7CC10DB62201B21D008AB33E /* CustomTVC.xib */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		7CA21EB522006B3100FE3CF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7CA21EB622006B5E00FE3CF1 /* Word.swift */,
+				7CAE0D15225E7689006A9BFF /* WordMappable.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7CAE0D17225E7771006A9BFF /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE0D18225E778B006A9BFF /* WordsViewController.swift */,
+			);
+			path = Words;
+			sourceTree = "<group>";
+		};
+		7CAE0D1A225E77C9006A9BFF /* New Word */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE0D1C225E7819006A9BFF /* NewWordViewController.swift */,
+			);
+			path = "New Word";
+			sourceTree = "<group>";
+		};
+		7CAE0D1B225E77DC006A9BFF /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				7CAE0D1E225E782C006A9BFF /* DefinitionsViewController.swift */,
+				7CAE0D20225E7842006A9BFF /* Custom Cell */,
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		7CAE0D20225E7842006A9BFF /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7CC10DB52201B21D008AB33E /* CustomTableViewCell.swift */,
+				7CC10DB62201B21D008AB33E /* CustomTableViewCell.xib */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 		7CC10DB22201AC0A008AB33E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				7CC10DB32201AC61008AB33E /* Helper.swift */,
+				7CAE0D11225E7074006A9BFF /* Extension+UIColor.swift */,
+				7CAE0D23225E798D006A9BFF /* Extension+NSObject.swift */,
 			);
-			name = Helper;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		AFE5D6B46E69A44995F90519 /* Frameworks */ = {
@@ -215,7 +256,7 @@
 			files = (
 				7CA21EA42200584700FE3CF1 /* LaunchScreen.storyboard in Resources */,
 				7CA21EA12200584700FE3CF1 /* Assets.xcassets in Resources */,
-				7CC10DB82201B21D008AB33E /* CustomTVC.xib in Resources */,
+				7CC10DB82201B21D008AB33E /* CustomTableViewCell.xib in Resources */,
 				7CA21E9F2200584600FE3CF1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +338,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CA21EB12200671500FE3CF1 /* WordsVC.swift in Sources */,
-				7CA21EB92200A68800FE3CF1 /* NewWordVC.swift in Sources */,
+				7CAE0D1F225E782C006A9BFF /* DefinitionsViewController.swift in Sources */,
+				7CAE0D14225E70B5006A9BFF /* AlertManager.swift in Sources */,
+				7CAE0D12225E7074006A9BFF /* Extension+UIColor.swift in Sources */,
 				7CA21E9A2200584600FE3CF1 /* AppDelegate.swift in Sources */,
 				7CA21EB722006B5E00FE3CF1 /* Word.swift in Sources */,
-				7CC10DB72201B21D008AB33E /* CustomTVC.swift in Sources */,
-				7CC10DB42201AC61008AB33E /* Helper.swift in Sources */,
-				7CA21EAD2200646600FE3CF1 /* DictionaryManager.swift in Sources */,
-				7CA21EBB2200A76200FE3CF1 /* DefinitionVC.swift in Sources */,
+				7CAE0D1D225E7819006A9BFF /* NewWordViewController.swift in Sources */,
+				7CAE0D19225E778B006A9BFF /* WordsViewController.swift in Sources */,
+				7CC10DB72201B21D008AB33E /* CustomTableViewCell.swift in Sources */,
+				7CAE0D16225E7689006A9BFF /* WordMappable.swift in Sources */,
+				7CAE0D24225E798D006A9BFF /* Extension+NSObject.swift in Sources */,
+				7CA21EAD2200646600FE3CF1 /* ApiManager.swift in Sources */,
 				7CA21EB32200688700FE3CF1 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

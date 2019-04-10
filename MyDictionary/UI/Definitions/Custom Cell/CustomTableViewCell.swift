@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTVC: UITableViewCell {
+class CustomTableViewCell: UITableViewCell {
 
     // MARK: - Privates
     private var colorsArray = [UIColor]()
@@ -41,7 +41,8 @@ class CustomTVC: UITableViewCell {
     }
 
     // MARK: - Private functions
-    func configureCellWith(text: String, fontSize: CGFloat) {
+    func configureCellWith(text: String,
+                           fontSize: CGFloat) {
         cellLabel.text = text
 
         let font = UIFont(name: "Helvetica-Light", size: fontSize)

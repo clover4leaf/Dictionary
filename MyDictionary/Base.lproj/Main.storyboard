@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="exv-bW-uow">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="exv-bW-uow">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--WordsVC-->
+        <!--Words View Controller-->
         <scene sceneID="xH2-jp-YhC">
             <objects>
-                <viewController storyboardIdentifier="wordsScreen" id="lW6-XU-UDT" customClass="WordsVC" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordsViewController" id="lW6-XU-UDT" customClass="WordsViewController" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KiH-Si-jpV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="540.57971014492762" y="-301.33928571428572"/>
         </scene>
-        <!--New WordVC-->
+        <!--New Word View Controller-->
         <scene sceneID="doN-c1-uEW">
             <objects>
-                <viewController storyboardIdentifier="newWordScreen" id="YLP-fl-4E6" customClass="NewWordVC" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewWordViewController" id="YLP-fl-4E6" customClass="NewWordViewController" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ksu-55-Cbi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="1429" y="-597"/>
         </scene>
-        <!--DefinitionVC-->
+        <!--Definitions View Controller-->
         <scene sceneID="SW6-Aa-RA7">
             <objects>
-                <viewController storyboardIdentifier="definitionsScreen" id="Jsm-f7-Tei" customClass="DefinitionVC" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DefinitionsViewController" id="Jsm-f7-Tei" customClass="DefinitionsViewController" customModule="MyDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PRT-ME-ZeD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

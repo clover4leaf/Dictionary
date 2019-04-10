@@ -1,15 +1,14 @@
 //
-//  NewWordVC.swift
+//  NewWordViewController.swift
 //  MyDictionary
 //
-//  Created by Kirill on 1/29/19.
+//  Created by Kirill on 4/10/19.
 //  Copyright © 2019 Kirill. All rights reserved.
 //
 
 import UIKit
-import RealmSwift
 
-class NewWordVC: UIViewController {
+class NewWordViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var textField: UITextField!
@@ -18,23 +17,24 @@ class NewWordVC: UIViewController {
     // MARK: - Actions
     @IBAction func onSave(_ sender: Any) {
         if let word = textField.text {
-            DictionaryManager.findTheDifinitionOf(word: word) { (array, error) in
+            ApiManager.shared.findDifinitionOf(word: word) { (response, error) in
                 if let error = error {
-                    print(error.localizedDescription)
+                    print("💥🎩 Error in NewWordViewController - onSave: \(error.localizedDescription)")
                     return
                 }
 
-                if let array = array {
-                    if array.isEmpty {
-                        UIAlertController.alertNoSuch(word: word, viewController: self)
+                if let array = response?[0].shortdef {
+                    if array.isEmpty || array == [] {
+                        AlertManager.shared.alertNoSuch(word: word,
+                                                        viewController: self)
                         return
                     }
-
-                    let defArray = DBManager.shared.arrayToListConverter(array: array)
 
                     let wordObject = Word()
 
                     wordObject.word = word
+
+                    let defArray = DBManager.shared.arrayToListConverter(array: array)
                     wordObject.definitions = defArray
 
                     DBManager.shared.saveWordWith(object: wordObject)
@@ -42,12 +42,14 @@ class NewWordVC: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 }
             }
+
         }
     }
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         textField.delegate = self
 
         setupUI()
@@ -55,18 +57,24 @@ class NewWordVC: UIViewController {
 
     // MARK: - Private functions
     private func setupUI() {
+        // Background View
         self.view.backgroundColor = UIColor.backgroundColor()
+
+        // Button
         saveButton.layer.backgroundColor = UIColor.redColor().cgColor
         saveButton.layer.cornerRadius = 5.0
         saveButton.layer.masksToBounds = true
         saveButton.clipsToBounds = true
     }
+
 }
 
 // MARK: - UITextFieldDelegate
-extension NewWordVC: UITextFieldDelegate {
+extension NewWordViewController: UITextFieldDelegate {
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
+
 }
