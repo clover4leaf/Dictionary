@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DefinitionsViewController: UIViewController {
 
     // MARK: - Privates
-    private var defArray = [String]()
+    private var defArray = List<String>()
 
     // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Publics
-    var word = String()
-    var index = Int()
+    var word: Word?
+//    var index = Int()
 
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -31,22 +32,21 @@ class DefinitionsViewController: UIViewController {
         tableView.register(UINib(nibName: cellId, bundle: nil),
                            forCellReuseIdentifier: cellId)
 
-        defArray = DBManager.shared.getDefinitionOf(wordIndex: index)
+        defArray = word!.definitions // FORCE!!!
 
         setupUI()
     }
 
     // MARK: - Private functions
     @objc private func deleteAction() {
-        AlertManager.shared.alertDeleteWord(index: self.index,
-                                            word: word,
-                                            viewController: self) {
-                                                self.navigationController?.popViewController(animated: true)
+        guard let word = word else { return }
+        AlertManager.alertDeleteWord(word: word, viewController: self) {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
     private func setupUI() {
-        self.navigationItem.title = word
+        self.navigationItem.title = word?.word
 
         let deleteItem = UIBarButtonItem(barButtonSystemItem: .trash,
                                          target: self,
@@ -67,10 +67,6 @@ extension DefinitionsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return defArray.count
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 
     func tableView(_ tableView: UITableView,

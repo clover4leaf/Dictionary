@@ -23,6 +23,7 @@
 		7CAE0D24225E798D006A9BFF /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE0D23225E798D006A9BFF /* Extension+NSObject.swift */; };
 		7CC10DB72201B21D008AB33E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC10DB52201B21D008AB33E /* CustomTableViewCell.swift */; };
 		7CC10DB82201B21D008AB33E /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC10DB62201B21D008AB33E /* CustomTableViewCell.xib */; };
+		7CE964542260B65700056C70 /* WordsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE964532260B65700056C70 /* WordsPresenter.swift */; };
 		AAD4C0E17E940FEAE5DA5B80 /* Pods_MyDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547986AE13187A6FB506C99B /* Pods_MyDictionary.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		7CAE0D23225E798D006A9BFF /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		7CC10DB52201B21D008AB33E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7CC10DB62201B21D008AB33E /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		7CE964532260B65700056C70 /* WordsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAE0D18225E778B006A9BFF /* WordsViewController.swift */,
+				7CE964532260B65700056C70 /* WordsPresenter.swift */,
 			);
 			path = Words;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				7CAE0D1F225E782C006A9BFF /* DefinitionsViewController.swift in Sources */,
 				7CAE0D14225E70B5006A9BFF /* AlertManager.swift in Sources */,
 				7CAE0D12225E7074006A9BFF /* Extension+UIColor.swift in Sources */,
+				7CE964542260B65700056C70 /* WordsPresenter.swift in Sources */,
 				7CA21E9A2200584600FE3CF1 /* AppDelegate.swift in Sources */,
 				7CA21EB722006B5E00FE3CF1 /* Word.swift in Sources */,
 				7CAE0D1D225E7819006A9BFF /* NewWordViewController.swift in Sources */,

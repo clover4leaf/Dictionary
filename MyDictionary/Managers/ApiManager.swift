@@ -22,9 +22,12 @@ final class ApiManager {
     private init() {}
 
     // MARK: - Public functions
-    func findDifinitionOf(word: String, completionHandler: @escaping ([WordMappable]?, Error?) -> Void) {
+    func findDifinitionOf(word: String, completion: @escaping ([WordMappable]?, Error?) -> Void) {
         // check the word before doing the request
-        guard let url = try? "https://dictionaryapi.com/api/v3/references/sd2/json/\(word)".asURL() else { return }
+        guard let url = try? "https://dictionaryapi.com/api/v3/references/sd2/json/\(word)".asURL() else {
+            completion(nil, nil)
+            return
+        }
 
         let parametres = [
             "key": apiKey
@@ -34,9 +37,9 @@ final class ApiManager {
             switch responseString.result {
             case .success(let value):
                 let wordMappable = Mapper<WordMappable>().mapArray(JSONString: value)
-                completionHandler(wordMappable, nil)
+                completion(wordMappable, nil)
             case .failure(let error):
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
     }

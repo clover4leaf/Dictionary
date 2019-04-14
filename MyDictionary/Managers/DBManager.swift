@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 import Realm
+import ObjectMapper
 
 class DBManager {
 
@@ -32,58 +33,29 @@ class DBManager {
         return list
     }
 
-    func saveWordWith(object: Word) {
+    func saveWord(with word: Word) {
         if let realm = try? Realm() {
             try? realm.write {
-                realm.add(object)
+                realm.add(word)
             }
         }
     }
 
-    func deleteItemAt(index: Int, completion: () -> Void) {
+    func delete(word: Word) {
         if let realm = try? Realm() {
             try? realm.write {
-                let wordResults = realm.objects(Word.self)
-
-                realm.delete(wordResults[index])
+                realm.delete(word)
 //                realm.deleteAll()
-                completion()
             }
         }
     }
 
-    func getSavedWords() -> [String] {
+    func getSavedWords() -> Results<Word>? {
         if let realm = try? Realm() {
-            let wordResults = realm.objects(Word.self)
-
-            var wordsArray = [String]()
-
-            wordResults.forEach { (wordObj) in
-                let word = wordObj.word
-                wordsArray.append(word)
-            }
-
+            let wordsArray = realm.objects(Word.self)
             return wordsArray
         }
 
-        return []
-    }
-
-    func getDefinitionOf(wordIndex: Int) -> [String] {
-        if let realm = try? Realm() {
-            let defResults = realm.objects(Word.self)
-
-            let def = defResults[wordIndex].definitions
-
-            var defArray = [String]()
-
-            def.forEach { (definition) in
-                defArray.append(definition)
-            }
-
-            return defArray
-        }
-
-        return []
+        return nil
     }
 }

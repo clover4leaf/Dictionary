@@ -7,12 +7,18 @@
 //
 
 import UIKit
-//import Realm
+import RealmSwift
+
+protocol WordsViewProtocol: class {
+    func reloadData()
+}
 
 class WordsViewController: UIViewController {
 
     // MARK: Privates
-    private var savedWords = [String]()
+    private var savedWords: Results<Word>!
+    private var presenter: WordsPresenterProtocol!
+//    private var interactor:
 
     // MARK: - Actions
     @IBAction func onAdd(_ sender: Any) {
@@ -22,6 +28,7 @@ class WordsViewController: UIViewController {
         if let addVC = storyboard.instantiateViewController(withIdentifier: viewId) as? NewWordViewController {
             self.navigationController?.pushViewController(addVC, animated: true)
         }
+//        presenter?.addAction()
     }
 
     // MARK: - Outlets
@@ -31,6 +38,8 @@ class WordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter = WordsPresenter(view: self)
+
         setupTableView()
         setupUI()
 //        DBManager.shared.printPath()
@@ -38,6 +47,7 @@ class WordsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         reloadDataFromDB()
+//        presenter.reloadDataFromDB()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -45,21 +55,25 @@ class WordsViewController: UIViewController {
     }
 
     // MARK: - Private functions
-    private func setupUI() {
-        self.navigationItem.title = "Words"
-
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.backgroundColor()
-
-        self.view.backgroundColor = UIColor.backgroundColor()
-    }
-
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+
         let cellId = CustomTableViewCell.getStringName()
         tableView.register(UINib(nibName: cellId, bundle: nil),
                            forCellReuseIdentifier: cellId)
+    }
+
+    private func setupUI() {
+        // NavigationBar
+        self.navigationItem.title = "Words"
+
+        // UITableView
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.backgroundColor()
+
+        // Background View
+        self.view.backgroundColor = UIColor.backgroundColor()
     }
 
     private func reloadDataFromDB() {
@@ -70,12 +84,13 @@ class WordsViewController: UIViewController {
     private func deleteActionAt(indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .normal, title: "Delete") { (_, _, complection) in
 
-            AlertManager.shared.alertDeleteWord(index: indexPath.row,
-                                                word: self.savedWords[indexPath.row],
-                                                viewController: self,
-                                                completion: {
-                                                    self.reloadDataFromDB()
-            })
+            if self.savedWords != nil {
+                AlertManager.alertDeleteWord(word: self.savedWords[indexPath.row],
+                                             viewController: self,
+                                             completion: {
+                                                self.reloadDataFromDB()
+                })
+            }
 
             complection(true)
         }
@@ -83,6 +98,15 @@ class WordsViewController: UIViewController {
         action.backgroundColor = .red
 
         return action
+    }
+
+}
+
+// MARK: - WordsViewProtocol
+extension WordsViewController: WordsViewProtocol {
+
+    func reloadData() {
+        tableView.reloadData()
     }
 
 }
@@ -104,7 +128,7 @@ extension WordsViewController: UITableViewDelegate, UITableViewDataSource {
         let cellId = CustomTableViewCell.getStringName()
 
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: cellId) as? CustomTableViewCell {
-            cell.configureCellWith(text: savedWords[indexPath.row], fontSize: 34.0)
+            cell.configureCellWith(text: savedWords[indexPath.row].word, fontSize: 34.0)
             cell.chooseColorForCell(index: indexPath.row)
 
             return cell
@@ -121,8 +145,6 @@ extension WordsViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let defVC = storyboard.instantiateViewController(withIdentifier: viewId) as? DefinitionsViewController {
             defVC.word = savedWords[indexPath.row]
-            defVC.index = indexPath.row
-
             self.navigationController?.pushViewController(defVC, animated: true)
         }
     }
